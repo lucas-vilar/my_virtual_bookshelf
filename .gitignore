@@ -3,5 +3,6 @@ db.sqlite3
 django_library/__pycache__/
 mylibrary/__pycache__/
 mylibrary/migrations/__pycache__/
+staticfiles/
 
 
