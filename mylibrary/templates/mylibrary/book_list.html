@@ -1,0 +1,31 @@
+{% extends "mylibrary/base.html" %}
+<head>
+    {% load static %}
+    {% block head %}
+        <link rel="stylesheet" href="{% static 'mylibrary/booklist.css' %}">
+        <title>Book list</title>
+    {% endblock %}
+</head>
+
+{% block content %}
+<header class="booklist-header">
+    <h1>Book list</h1>
+</header>
+<main class="booklist-main">
+    {% if book_list %}
+        {% for book in book_list %}
+            <a href="{% url 'bookupdate' book.id %}" class="book-link">
+                <section class="book-item">
+                    <figure class="book-cover-figure">
+                        <img src="{{book.book_cover.url}}" alt="" width="200" height="300" class="cover">
+                    </figure>
+                    {{book.title}}
+                </section>
+            </a>
+        {% endfor %}
+    {% else %}
+        You did not create any book!
+        <a href="{% url 'bookcreate' %}">Create new book</a>
+    {% endif %}
+</main>
+{% endblock %}

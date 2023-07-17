@@ -1,0 +1,72 @@
+/* Organização do corpo */
+
+.bookupdate-header {
+    font-size: 0.85rem;
+}
+
+.bookupdate-main {
+    display: flex;
+    padding-top: 2rem;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 85%;
+}
+
+form {
+    border: 2px solid #333;
+    padding: 2rem;
+    box-shadow: 3px 3px #fab700;
+}
+
+.createbook-title, .createbook-author, .createbook-genre, .createbook-pagenumbers, .createbook-publicationyear, .createbook-grade, .createbook-date, 
+.createbook-publisher, .createbook-file {
+    margin-bottom: 1rem;
+}
+
+.createbook-file {
+    margin-top: 1rem;
+}
+
+/* Configuração dos botões */
+
+.bookupdate-submit {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    width: 40%;
+    height: auto;
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.bookupdate-delete {
+    display: flex;
+    margin-top: 0.5rem;
+    justify-content: center;
+    text-decoration: none;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    width: 40%;
+    height: auto;
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: 1rem;
+}
+
+.bookupdate-submit:hover, .bookupdate-delete:hover {
+    color: white;
+    background-color: #333;
+}
+
+.bookupdate-submit:active, .bookupdate-delete:active {
+    animation: ease-out;
+    color: white;
+    background-color: #333;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}

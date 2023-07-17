@@ -1,0 +1,37 @@
+<head>
+    {% load static %}
+    {% block head %}
+        <link rel="stylesheet" href="{% static 'mylibrary/login.css' %}">
+        <title>Sign In</title>
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+        <section class="container">
+            <section class="inside-container">
+                    <div class="form">
+                        <h1>Sign In</h1>
+                        <form class="login-form" method="post">
+                            {% csrf_token %}
+                            <div class="username-group">
+                                <label for="{{form.username.id_for_label}}" class="label"> {{form.username.label}} </label>
+                                <div class="input">{{form.username}}</div>
+                            </div>
+                            <div class="password-group">
+                                <label for="{{form.password.id_for_label}}" class="label"> {{form.password.label}} </label>
+                                <div class="input">{{form.password}}</div>
+                            </div>
+                            {% if form.non_field_errors %}
+                                <br>
+                                <div class="errors">
+                                    {{ form.non_field_errors }}
+                                </div>
+                            {% endif %}
+                            <input type="submit" value="Login" class="login_button" />
+                            <a href="{% url 'signup' %}" class="signup">Signup</a>
+                        </form> 
+                    </div>
+            </section>     
+        </section>  
+    {% endblock %}
+</body>

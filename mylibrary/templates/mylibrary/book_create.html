@@ -1,0 +1,21 @@
+{% extends "mylibrary/base.html" %}
+<head>
+    {% load static %}
+    {% block head %}
+        <link rel="stylesheet" href="{% static 'mylibrary/bookcreate.css' %}">
+        <title>New book</title>
+    {% endblock %}
+</head>
+
+{% block content %}
+<header class="bookcreate-header">
+    <h1>New book</h1>
+</header>
+<main class="bookcreate-main">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Create" class="bookcreate-submit"/>
+    </form>
+</main>
+{% endblock %}

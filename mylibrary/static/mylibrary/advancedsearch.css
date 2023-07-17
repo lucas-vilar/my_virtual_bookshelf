@@ -1,0 +1,118 @@
+/* Organização do corpo */
+
+.search-header {
+    font-size: 0.85rem;
+}
+
+.search-main {
+    display: flex;
+    padding-top: 2rem;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+form {
+    border: 2px solid #333;
+    padding: 2rem;
+    box-shadow: 3px 3px #fab700;
+    margin-bottom: 2rem;
+}
+
+.texts-div {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.searchbutton-submit {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    width: 40%;
+    height: auto;
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.searchbutton-submit:hover{
+    color: white;
+    background-color: #333;
+}
+
+.searchbutton-submit:active{
+    animation: ease-out;
+    color: white;
+    background-color: #333;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+.book-item {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #333;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 3px 3px #fab700;
+    margin-bottom: 2rem;
+    font-weight: bolder;
+    transition: all 0.5s;
+}
+
+.book-item:hover {
+    transform-origin: center;
+    animation: increaseSize 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes increaseSize {
+    0% {
+        transform: scale(1);
+    }
+
+    80% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* LARGE SCREEN */
+@media screen and (min-width: 992px) {
+    
+    .search-list{
+        display: flex;
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .book-link:any-link{
+        text-decoration: none;
+        color: #333;
+    }
+
+    .book-item {
+        width: 250px;
+        height: 350px;
+        white-space: nowrap;
+    }
+
+    .book-cover-figure {
+        width: 220px;
+        height: 320px;
+    }
+
+    .cover {
+        width: 100%;
+        height: 100%;
+    }
+
+}

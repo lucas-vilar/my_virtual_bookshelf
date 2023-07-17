@@ -1,0 +1,8 @@
+.env
+db.sqlite3
+django_library/__pycache__/
+mylibrary/__pycache__/
+mylibrary/media/books/*
+mylibrary/migrations/__pycache__/
+
+

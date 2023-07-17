@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'mylibrary/base.css' %}">
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <section class="header-user-button">
+            <button class="menu-button">
+                <div class="menu-icon"></div>
+            </button>
+            <h1>Hello, {{user.username}}</h1>
+        </section>
+        <nav class="side-menu">
+            <ul>
+                <li> <a href="{% url 'home' %}"> <figure> <img src="{% static 'mylibrary/figs/home.png' %}" width='25' height='25'></img></figure> <span> Home </span></a></li>
+                <li> <a href="{% url 'profile' %}"> <figure> <img src="{% static 'mylibrary/figs/icon.png' %}" width='25' height='25'></img></figure> <span> Profile </span></a></li>
+                <li> <a href="{% url 'bookcreate' %}"> <figure> <img src="{% static 'mylibrary/figs/book-create.png' %}" width='25' height='25'></img></figure><span>Create new book</span></a></li>
+                <li> <a href="{% url 'booklist' %}"> <figure> <img src="{% static 'mylibrary/figs/book-list.png' %}" width='25' height='25'></img> </figure><span>Books list</span></a></li>
+                <li> <a href="{% url 'nextreadscreate' %}"> <figure> <img src="{% static 'mylibrary/figs/nextreads-create.png' %}" width='25' height='25'></img> </figure><span>Create next read</span></a></li>
+                <li> <a href="{% url 'nextreadslist' %}"> <figure> <img src="{% static 'mylibrary/figs/nextreads-list.png' %}" width='25' height='25'></img> </figure><span>Next reads list</span></a></li>
+                <li> <a href="{% url 'goalscreate' %}"> <figure> <img src="{% static 'mylibrary/figs/goals-create.png' %}" width='25' height='25'></img> </figure><span>New goal</span></a></li>
+                <li> <a href="{% url 'goalslist' %}" > <figure> <img src="{% static 'mylibrary/figs/goals-list.png' %}" width='25' height='25'></img> </figure><span>Goals list</span></a></li>
+                <li> <a href="{% url 'advancedsearch' %}" > <figure> <img src="{% static 'mylibrary/figs/advanced-search.png' %}" width='25' height='25'></img> </figure><span>Advanced search</span></a></li>
+                <li> <a href="{% url 'logout' %}" > <figure> <img src="{% static 'mylibrary/figs/logout.png' %}" width='25' height='25'></img> </figure><span>Logout</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <aside class="side-menu-screen">
+            <ul>
+                <li>
+                    <a href="{% url 'home' %}"> <figure> <img src="{% static 'mylibrary/figs/home.png' %}" width='25' height='25'></img></figure>
+                    <span> Home </span></a>
+                    <div class="caption home-caption">Home</div>
+                </li>
+                <li>
+                    <a href="{% url 'profile' %}"> <figure> <img src="{% static 'mylibrary/figs/icon.png' %}" width='25' height='25'></img></figure>
+                    <span> Profile </span></a>
+                    <div class="caption profile-caption">Profile</div>
+                </li>
+                <li>
+                    <a href="{% url 'bookcreate' %}"> <figure> <img src="{% static 'mylibrary/figs/book-create.png' %}" width='25' height='25'></img></figure>
+                    <span>Create new book</span></a>
+                    <div class="caption bookcreate-caption">Create book</div>
+                </li>
+                <li>
+                    <a href="{% url 'booklist' %}"> <figure> <img src="{% static 'mylibrary/figs/book-list.png' %}" width='25' height='25'></img> </figure>
+                    <span>Books list</span></a>
+                    <div class="caption booklist-caption">Book list</div>
+                </li>
+                <li>
+                    <a href="{% url 'nextreadscreate' %}"> <figure> <img src="{% static 'mylibrary/figs/nextreads-create.png' %}" width='25' height='25'></img> </figure>
+                    <span>Create next read</span></a>
+                    <div class="caption createnextread-caption">Create Next read</div>
+                </li>
+                <li>
+                    <a href="{% url 'nextreadslist' %}"> <figure> <img src="{% static 'mylibrary/figs/nextreads-list.png' %}" width='25' height='25'></img> </figure>
+                    <span>Next reads list</span></a>
+                    <div class="caption nextreadlist-caption">Next read list</div>
+                </li>
+                <li>
+                    <a href="{% url 'goalscreate' %}"> <figure> <img src="{% static 'mylibrary/figs/goals-create.png' %}" width='25' height='25'></img> </figure>
+                    <span>New goal</span></a>
+                    <div class="caption creategoal-caption">Create new goal</div>
+                </li>
+                <li>
+                    <a href="{% url 'goalslist' %}" > <figure> <img src="{% static 'mylibrary/figs/goals-list.png' %}" width='25' height='25'></img> </figure>
+                    <span>Goals list</span></a>
+                    <div class="caption goalslist-caption">Goals list</div>
+                </li>
+                <li>
+                    <a href="{% url 'advancedsearch' %}" > <figure> <img src="{% static 'mylibrary/figs/advanced-search.png' %}" width='25' height='25'></img> </figure>
+                    <span>Advanced search</span></a>
+                    <div class="caption advancedsearch-caption">Advanced search</div>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}" > <figure> <img src="{% static 'mylibrary/figs/logout.png' %}" width='25' height='25'></img> </figure>
+                    <span>Logout</span></a>
+                    <div class="caption logout-caption">Logout</div>
+                </li>
+            </ul>
+        </aside>
+        <section class="content">
+            {% block content %}
+            {% endblock %}
+        </section>
+    </main>
+</body>
+</html>
+

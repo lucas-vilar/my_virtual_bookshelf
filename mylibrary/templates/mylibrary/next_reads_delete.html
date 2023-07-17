@@ -1,0 +1,22 @@
+{% extends "mylibrary/base.html" %}
+<head>
+    {% load static %}
+    {% block head %}
+        <link rel="stylesheet" href="{% static 'mylibrary/nextreadsdelete.css' %}">
+        <title>Delete next reading</title>
+    {% endblock %}
+</head>
+
+{% block content %}
+<header class="nextreaddelete-header">
+    <h1>Delete next reading</h1>
+</header>
+<main class="nextreaddelete-main">
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Do you really want to delete <span class="nextread-title">'{{nextreads.title}}'</span> from next readings?</p>
+        <p>This is an irreversible action</p>
+        <input type="submit" value="Confirmar" class="nextreaddelete-submit" />
+    </form>
+</main>
+{% endblock %}

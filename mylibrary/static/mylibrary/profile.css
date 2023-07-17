@@ -1,0 +1,47 @@
+/* Organização do corpo */
+
+.profile-header {
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+}
+
+.profile-main {
+    display: flex;
+    padding-top: 2rem;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 50%;
+    padding: 2rem;
+}
+
+.changepassword-button, .delete-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #fab700;
+    color: #333;
+    border: none;
+    border-radius: 3px;
+    width: 150px;
+    height: auto;
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+}
+
+.changepassword-button:hover, .delete-button:hover {
+    color: white;
+    background-color: #333;
+}
+
+.changepassword-button:active, .delete-button:active {
+    animation: ease-out;
+    color: white;
+    background-color: #333;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}

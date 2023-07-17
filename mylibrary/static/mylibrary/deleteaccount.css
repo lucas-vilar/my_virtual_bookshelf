@@ -1,0 +1,48 @@
+/* Organização do corpo */
+
+.delete-header {
+    font-size: 0.85rem;
+}
+
+.delete-main {
+    display: flex;
+    padding-top: 2rem;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 85%;
+}
+
+form {
+    border: 2px solid #333;
+    padding: 2rem;
+    box-shadow: 3px 3px #fab700;
+}
+
+
+/* Configuração do botão */
+.delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    width: 40%;
+    height: auto;
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem
+}
+
+.delete-button:hover {
+    color: white;
+    background-color: #333;
+}
+
+.delete-button:active{
+    animation: ease-out;
+    color: white;
+    background-color: #333;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}

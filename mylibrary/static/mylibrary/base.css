@@ -1,0 +1,472 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configurações gerais do html e body e main*/
+html {
+    font-family: monospace;
+    font-size: 1rem;
+    color: #333;
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-flow: column nowrap;
+    min-width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* Configuração do cabeçalho */
+
+header {
+    min-width: 100%;
+}
+
+.header-user-button {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-width: 100%;
+    white-space: nowrap;
+    background-color: rgb(250, 183, 0);
+    border-bottom: 1px solid #333;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 0.5rem;
+}
+
+/* Configuração botão */
+.menu-button {
+    background-color: transparent;
+    border: none;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.menu-icon, .menu-icon:before, .menu-icon:after {
+    background-color: #333;
+    width: 40px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    transition: all 0.5s;
+}
+
+.menu-icon:before, .menu-icon:after {
+    content: "";
+}
+
+.menu-icon::before {
+    transform: translate(-20px, -12px);
+}
+
+.menu-icon::after {
+    transform: translate(-20px, 12px);
+}
+
+:is(header:hover, .header:focus-within) .menu-icon {
+    background-color: transparent;
+    transform: rotate(720deg);
+}
+
+:is(header:hover, header:focus-within) .menu-icon::before {
+    transform: translateX(-20px) rotate(45deg);
+}
+
+:is(header:hover, header:focus-within) .menu-icon::after {
+    transform: translateX(-20px) rotate(-45deg);
+}
+
+/*  */
+
+
+/* Configuração do corpo */
+
+main {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-width: 100%;
+}
+
+/* Configuração do side menu */
+
+ :is(header:hover, header:focus-within) .side-menu {
+    display: block;
+    flex-flow: row nowrap;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 1.3rem;
+    background-color: rgb(250, 183, 0);
+    min-width: 100%;
+}
+
+.side-menu {
+    display: none;
+    transform-origin: top center;
+    animation: showMenu 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes showMenu {
+    0% {
+        transform: scaleY(0);
+    }
+
+
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+.side-menu ul {
+    list-style-type: none;
+    display: flex;
+    flex-flow: column nowrap;
+    flex-grow: 1;
+}
+
+.side-menu li {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    white-space: nowrap;
+    border-bottom: 1px solid #333;
+}
+
+.side-menu li a {
+    text-decoration: none;
+    padding-left: 1rem;
+    color: #333;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.side-menu li a:hover {
+    background-color: #333;
+    color: beige;
+}
+
+figure {
+    padding-right: 0.5rem;
+}
+
+.side-menu-screen {
+    display: none;
+}
+
+.content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+    height: auto;
+}
+
+/* SMALL SCREEN*/
+@media screen and (min-width: 576px) {
+    /* Cria borda em baixo do nome do usuário */
+    .header-user-button {
+        border-bottom: 2px solid #333;
+    }
+
+    /* Remove o menu animado */
+    .menu-button {
+        display: none;
+    }
+
+    :is(header:hover, header:focus-within) .side-menu {
+        display: none;
+    }
+
+    .side-menu {
+        display: none;
+    }
+
+    /* Criação do menu lateral */
+    .side-menu-screen {
+        display: block;
+        flex-flow: row nowrap;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: 1.3rem;
+        background-color: #fab700;
+        max-width: 8%;
+        min-width: 50px;
+        min-height: 100%;
+        border-bottom: 1px solid #333;
+    }
+
+    .side-menu-screen ul {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        padding-top: 5rem;
+    }
+
+    .side-menu-screen li{
+        display: flex;
+        padding-bottom: 2rem;
+    }
+
+    .side-menu-screen li a:hover{
+        background-color: rgb(137, 101, 0);
+    }
+
+    .side-menu-screen li a span{
+        display: none;
+    }
+
+    /* Criação das legendas dos menus */
+
+    .caption {
+        display: none;
+        white-space: nowrap;
+    }
+
+    .side-menu-screen li:first-child, .side-menu-screen li:nth-child(2), .side-menu-screen li:nth-child(3), .side-menu-screen li:nth-child(4),
+    .side-menu-screen li:nth-child(5), .side-menu-screen li:nth-child(6), .side-menu-screen li:nth-child(7), .side-menu-screen li:nth-child(8),
+    .side-menu-screen li:nth-child(9), .side-menu-screen li:last-child{
+        position: relative;
+    }
+
+    .side-menu-screen li:first-child a:hover~.home-caption{
+        display: block;
+        position: absolute;
+        font-size: 1rem;
+        top: 30px;
+        left: 10px;
+        background-color: #333333a0;
+        border-radius: 3px;
+        color: white;
+    }
+
+    .side-menu-screen li:nth-child(2) a:hover~.profile-caption{
+        display: block;
+        position: absolute;
+        font-size: 1rem;
+        top: 30px;
+        left: 10px;
+        background-color: #333333a0;
+        border-radius: 3px;
+        color: white;
+    }
+
+    .side-menu-screen li:nth-child(3) a:hover~.bookcreate-caption{
+        display: block;
+        position: absolute;
+        font-size: 1rem;
+        top: 30px;
+        left: 10px;
+        background-color: #333333a0;
+        border-radius: 3px;
+        color: white;
+    }
+
+    .side-menu-screen li:nth-child(4) a:hover~.booklist-caption{
+        display: block;
+        position: absolute;
+        font-size: 1rem;
+        top: 30px;
+        left: 10px;
+        background-color: #333333a0;
+        border-radius: 3px;
+        color: white;
+    }
+
+    .side-menu-screen li:nth-child(5) a:hover~.createnextread-caption{
+        display: block;
+        position: absolute;
+        font-size: 1rem;
+        top: 30px;
+        left: 10px;
+        background-color: #333333a0;
+        border-radius: 3px;
+        color: white;
+    }
+
+    .side-menu-screen li:nth-child(6) a:hover~.nextreadlist-caption{
+        display: block;
+        position: absolute;
+        font-size: 1rem;
+        top: 30px;
+        left: 10px;
+        background-color: #333333a0;
+        border-radius: 3px;
+        color: white;
+    }
+
+    .side-menu-screen li:nth-child(7) a:hover~.creategoal-caption{
+        display: block;
+        position: absolute;
+        font-size: 1rem;
+        top: 30px;
+        left: 10px;
+        background-color: #333333a0;
+        border-radius: 3px;
+        color: white;
+    }
+
+    .side-menu-screen li:nth-child(8) a:hover~.goalslist-caption{
+        display: block;
+        position: absolute;
+        font-size: 1rem;
+        top: 30px;
+        left: 10px;
+        background-color: #333333a0;
+        border-radius: 3px;
+        color: white;
+    }
+
+    .side-menu-screen li:nth-child(9) a:hover~.advancedsearch-caption{
+        display: block;
+        position: absolute;
+        font-size: 1rem;
+        top: 30px;
+        left: 10px;
+        background-color: #333333a0;
+        border-radius: 3px;
+        color: white;
+    }
+
+    .side-menu-screen li:last-child a:hover~.logout-caption{
+        display: block;
+        position: absolute;
+        font-size: 1rem;
+        top: -30px;
+        left: 10px;
+        background-color: #333333a0;
+        border-radius: 3px;
+        color: white;
+    }
+
+    .content {
+        min-width: 90%;
+        max-height: 100%;
+    }
+
+}
+
+/* MEDIUM AND LARGE SCREEN*/
+
+@media screen and (min-width: 768px) {
+    /* Aumento do tamanho dos icones */
+    .icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Alterando a posição das legendas */
+
+    .side-menu-screen li:first-child a:hover~.home-caption, .side-menu-screen li:nth-child(2) a:hover~.profile-caption, .side-menu-screen li:nth-child(3) a:hover~.bookcreate-caption,
+    .side-menu-screen li:nth-child(4) a:hover~.booklist-caption, .side-menu-screen li:nth-child(5) a:hover~.createnextread-caption, .side-menu-screen li:nth-child(6) a:hover~.nextreadlist-caption,
+    .side-menu-screen li:nth-child(7) a:hover~.creategoal-caption, .side-menu-screen li:nth-child(8) a:hover~.goalslist-caption{
+        display: block;
+        position: absolute;
+        font-size: 1rem;
+        top: 50px;
+        left: 10px;
+        background-color: #333333a0;
+        border-radius: 3px;
+        color: white;
+    }
+
+    .side-menu-screen li:last-child a:hover~.advancedsearch-caption{
+        display: block;
+        position: absolute;
+        font-size: 1rem;
+        top: -30px;
+        left: 10px;
+        background-color: #333333a0;
+        border-radius: 3px;
+        color: white;
+    }
+}
+
+
+/* X LARGE SCREEN*/
+@media screen and (min-width: 1200px) {
+    
+    img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .side-menu-screen {
+        justify-content: flex-start;
+        align-items: flex-start;
+        max-width: 12%;
+        min-width: 220px;
+        min-height: 100%;
+        border-right: 1px solid #333;
+    }
+
+    .side-menu-screen ul {
+        justify-content: flex-start ;
+        align-items: flex-start;
+    }
+
+    .side-menu-screen li {
+        display: block;
+        width: 100%;
+    }
+
+    .side-menu-screen a {
+        display: flex;
+        flex-flow: row nowrap;
+        text-decoration: none;
+        font-size: 1rem;
+        border-radius: 3px;
+        color: #333;
+    }
+
+    .side-menu-screen a:hover {
+        color: beige;
+    }
+
+    .side-menu-screen li a span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    /* Retira as legendas */
+
+    .side-menu-screen li:first-child a:hover~.home-caption, .side-menu-screen li:nth-child(2) a:hover~.profile-caption, .side-menu-screen li:nth-child(3) a:hover~.bookcreate-caption,
+    .side-menu-screen li:nth-child(4) a:hover~.booklist-caption, .side-menu-screen li:nth-child(5) a:hover~.createnextread-caption, .side-menu-screen li:nth-child(6) a:hover~.nextreadlist-caption,
+    .side-menu-screen li:nth-child(7) a:hover~.creategoal-caption, .side-menu-screen li:nth-child(8) a:hover~.goalslist-caption, .side-menu-screen li:nth-child(9) a:hover~.advancedsearch-caption,
+    .side-menu-screen li:last-child a:hover~.logout-caption{
+        display: none;
+    }
+
+    .content {
+        min-width: 80%;
+    }
+}

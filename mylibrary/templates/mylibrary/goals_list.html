@@ -1,0 +1,30 @@
+{% extends "mylibrary/base.html" %}
+<head>
+    {% load static %}
+    {% block head %}
+        <link rel="stylesheet" href="{% static 'mylibrary/goalslist.css' %}">
+        <title>Goals list</title>
+    {% endblock %}
+</head>
+
+{% block content %}
+<header class="goalslist-header">
+    <h1>Goals list</h1>
+</header>
+<main class="goalslist-main">
+    {% if readinggoals_list %}
+        {% for goal in readinggoals_list %}
+            <table class="goalslist-table">
+                <th>Goal</th><th>deadline</th>
+                    <tr class="row-content">
+                        <td class="table-cell goal">{{goal.goal}}</td><td class="table-cell deadline">{{goal.deadline}}</td><td class="table-cell remove"><a href="{% url 'goalsdelete' goal.id%}">
+                            <figure><img src="{% static 'mylibrary/figs/remove.png' %}" width="25" height="25" alt="" class="goalslist-remove"></figure>
+                        </a></td>
+                    </tr>
+            </table>
+        {% endfor %}
+    {% else %}
+        <p>You did not create any goal</p> <a href="{% url 'goalscreate' %}">Create new goal</a>
+    {% endif %}
+</main>
+{% endblock %}

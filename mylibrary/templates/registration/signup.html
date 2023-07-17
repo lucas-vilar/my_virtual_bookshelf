@@ -1,0 +1,70 @@
+<head>
+    {% load static %}
+    {% block head %}
+        <link rel="stylesheet" href="{% static 'mylibrary/signup.css' %}">
+        <title>Sign Up</title>
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <section class="container">
+        <section class="inside-container">
+            <div class="form">
+                <h1 class="h1">Sign Up</h1>
+                <form class="SignUp" method="post">
+                    {% csrf_token %}
+                    <div class="username-group">
+                        <label for="{{ form.username.id_for_label }}" class="label">{{ form.username.label }}</label>
+                        <div class="input"> {{ form.username }} </div>    
+                        <span class="interrogation-user">❓</span>
+                         {% if form.username.errors %}
+                            <br>
+                            <div class="errors_username">
+                                {{ form.username.errors }}
+                            </div>
+                        {% elif form.username.help_text %}
+                            <br>
+                            <small class="help_text_username">{{ form.username.help_text }}</small>
+                        {% endif %}
+                    </div>
+                    <div class="password-group">
+                        <label for="{{ form.password1.id_for_label }}" class="label">{{ form.password1.label }}</label>
+                        <div class="input">{{ form.password1 }}</div>
+                        <span class="interrogation-password1">❓</span>
+                         {% if form.password1.errors %}
+                            <br>    
+                            <div class="errors_password1">
+                                {{ form.password1.errors }}
+                            </div>
+                        {% elif form.password1.help_text %}
+                            <br>
+                            <small class="help_text_password1">{{ form.password1.help_text }}</small>
+                        {% endif %}
+                    </div>
+                    <div class="password2-group">
+                        <label for="{{ form.password2.id_for_label }}" class="label">{{ form.password2.label }}</label>
+                        <div class="input">{{ form.password2 }}</div>
+                        <span class="interrogation-password2">❓</span>
+                         {% if form.password2.errors %}
+                            <br>
+                            <div class="errors_password2">
+                                {{ form.password2.errors }}
+                            </div>
+                        {% elif form.password2.help_text %}
+                        <br>
+                        <small class="help_text_password2">{{ form.password2.help_text }}</small>
+                    {% endif %}
+                    </div>
+                    <input type="submit" value="Register" class="form-submit-button"/>
+                </form>
+            </div>
+
+            <figure class="my-figure">
+                <img src="{% static 'mylibrary/figs/1235.jpeg' %}" class="my-fig" alt="" title="Books" width="350" height="450">
+                <figcaption class="caption">Signup-books</figcaption>
+            </figure>
+
+        </section>
+    </section>
+    {% endblock %}
+</body>    

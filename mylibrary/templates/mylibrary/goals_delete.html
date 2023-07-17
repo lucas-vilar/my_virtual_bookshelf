@@ -1,0 +1,22 @@
+{% extends "mylibrary/base.html" %}
+<head>
+    {% load static %}
+    {% block head %}
+        <link rel="stylesheet" href="{% static 'mylibrary/goalsdelete.css' %}">
+        <title>Delete goal</title>
+    {% endblock %}
+</head>
+
+{% block content %}
+<header class="goaldelete-header">
+    <h1>Delete goal</h1>
+</header>
+<main class="goaldelete-main">
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Do you really want to delete <span class="goal-title">'{{readinggoals.goal}}'</span> goal?</p>
+        <p>This is an irreversible action</p>
+        <input type="submit" value="Delete" class="goaldelete-submit"/>
+    </form>
+</main>
+{% endblock %}

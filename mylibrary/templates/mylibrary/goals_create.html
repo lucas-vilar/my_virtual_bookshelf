@@ -1,0 +1,24 @@
+{% extends "mylibrary/base.html" %}
+<head>
+    {% load static %}
+    {% block head %}
+        <link rel="stylesheet" href="{% static 'mylibrary/goals.css' %}">
+        <title>Create goal</title>
+    {% endblock %}
+</head>
+
+{% block content %}
+<header class="goal-header">
+    <h1>New goal</h1>
+</header>
+<main class="goal-main">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class="buttons">
+            <input type="submit" value="Create" class="create-button"/>
+            <a href="{% url 'home' %}" class="back-button"> Back</a>
+        </div>
+    </form>
+</main>
+{% endblock %}

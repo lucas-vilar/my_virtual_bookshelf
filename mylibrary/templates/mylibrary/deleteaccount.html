@@ -1,0 +1,21 @@
+{% extends "mylibrary/base.html" %}
+<head>
+    {% load static %}
+    {% block head %}
+        <link rel="stylesheet" href="{% static 'mylibrary/deleteaccount.css' %}">
+        <title>Delete Account</title>
+    {% endblock %}
+</head>
+{% block content %}
+<header class="delete-header">
+    <h1>Delete account</h1>
+</header>
+<main class="delete-main">
+    <form action="" method="post">
+        {% csrf_token %}
+        <p> This action can't be undone.</p>
+        <p>Do you really want to delete your account?</p>
+        <input class="delete-button" type="submit" value="Delete">
+    </form>
+</main>
+{% endblock %}

@@ -1,0 +1,157 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+    font-family: monospace;
+    font-size: 1rem;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+label {
+    font-weight: bolder;
+}
+
+.container {
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inside-container {
+    min-height: 60%;
+    height: auto;
+    width: 60%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2rem;
+}
+
+.login-form {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.input {
+    padding-top: 0.5rem;
+}
+
+/* Design e ações dos botões */
+
+.login_button {
+    background-color: rgb(250, 67, 0);
+    color: antiquewhite;
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+    height: auto;
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: 1rem;
+}
+
+.login_button:hover {
+    color: white;
+    background-color: #333;
+    cursor: pointer;
+}
+
+.login_button:active {
+    animation: ease-out;
+    color: white;
+    background-color: #333;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    cursor: pointer;
+}
+
+.signup {
+    display: flex;
+    background-color: rgb(250, 67, 0);
+    color: antiquewhite;
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+    height: auto;
+    font-family: monospace;
+    font-weight: bolder;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup:hover {
+    color: white;
+    background-color: #333;
+    cursor: pointer;
+}
+
+.signup:active {
+    animation: ease-out;
+    color: white;
+    background-color: #333;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    cursor: pointer;
+}
+
+/* Erros no login */
+
+.errors li{
+    color: red;
+    position: absolute;
+    top: 130px;
+    left: -150px;
+    list-style: none;
+    font-size: 0.65rem;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+/* SMALL, MEDIUM AND LARGE SCREEN*/
+
+@media screen and (min-width: 576px) {
+
+    body {
+        font-size: 1.3rem;
+    }
+
+    .login_button {
+        font-size: 1.3rem;
+    }
+    
+    .errors li{
+        top: 150px;
+        left: -220px;
+        font-size: 0.8rem;
+    }
+}
+
+/* X LARGE */
+@media screen and (min-width: 1200px) {
+    
+    .inside-container {
+        border: 2px solid #333;
+        box-shadow: 5px 5px rgb(250, 67, 0);
+    }
+    
+}

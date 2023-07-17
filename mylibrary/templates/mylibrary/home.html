@@ -1,0 +1,60 @@
+{% extends "mylibrary/base.html" %}
+<head>
+    {% load static %}
+    {% block head %}
+        <link rel="stylesheet" href="{% static 'mylibrary/home.css' %}">
+        <title>Home</title>
+    {% endblock %}
+</head>
+
+{% block content %}
+    <header class="home-header">
+        <h1>General information about the collection:</h1>
+    </header>
+    <section class="home-main">
+        <section class="general-information">
+            Total pages read: {{totalpages}}<br>
+            Total books read: {{totalbooks}}<br>
+            Most read author: {{author}}<br>
+            Most read genre: {{genre}}<br>
+            Most read publisher: {{company}}
+        </section>
+        <section class="next-reads">
+            <span class="nextread-label"> Next read: </span> 
+            {% if nextread %}
+               {{nextread.title}} 
+                <div class="nextread-buttons">
+                    <a href="{% url 'bookcreate' %}?title={{nextread.title}}" class="nextread-finished"> Finished</a>
+                    <a href="{% url 'nextreadsdelete' nextread.id%}" class="nextread-cancelled"> Cancel</a>
+                </div>
+            {% endif %}
+        </section>
+        <section class="goals">
+            <span class="goal-label"> Goal: </span> 
+            {% if readinggoals %}
+                <div class="goals-div">
+                    <span>{{readinggoals.goal}}</span> 
+                    <span>{{time_remaining}}</span> 
+                </div>
+                <div class="goals-buttons">
+                    <form action="" method="post">
+                        {%csrf_token%}
+                        <input type="hidden" name="goal" value="{{readinggoals.id}}">
+                        <input type="submit" value="Achieved" class="goals-finished"> 
+                    </form>
+                    <a href="{% url 'goalsdelete' readinggoals.id%}" class="goals-cancelled"> Cancel</a>
+                </div>
+            {% endif %}
+        </section>
+        {% if messages %}
+            <section class="messages">
+                <span class="message-label">New message!</span>
+                <ul class="messages-list">
+                    {% for message in messages %}
+                        <li {% if message.tags %} class="{{message.tags}}" {% endif %}> {{message}} </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+    </section>
+    {% endblock %}

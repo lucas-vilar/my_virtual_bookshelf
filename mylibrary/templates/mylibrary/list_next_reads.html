@@ -1,0 +1,31 @@
+{% extends "mylibrary/base.html" %}
+<head>
+    {% load static %}
+    {% block head %}
+        <link rel="stylesheet" href="{% static 'mylibrary/nextreads-list.css' %}">
+        <title>Next readings list</title>
+    {% endblock %}
+</head>
+
+{% block content %}
+<header class="nextreadslist-header">
+    <h1>Next readings list</h1>
+</header>
+<main class="nextreadslist-main">
+    {% if nextreads_list %}
+        {% for titulo in nextreads_list %}
+            <table class="nextreadslist-table">
+                <th>Title</th>
+                    <tr class="row-content">
+                        <td class="title-content">{{titulo.title}}</td><td> <a href="{% url 'nextreadsdelete' titulo.id%}" class="remove-content">
+                            <figure><img src="{% static 'mylibrary/figs/remove.png' %}" width="25" height="25" alt="" class="goalslist-remove"></figure>
+                        </a> </td>
+                    </tr>
+            </table>
+        {% endfor %}
+    {% else %}
+        <p>You did not create any next reading</p> <a href="{% url 'nextreadscreate' %}">Create new next reading</a>
+    {% endif %}
+</main>
+{% endblock %}
+

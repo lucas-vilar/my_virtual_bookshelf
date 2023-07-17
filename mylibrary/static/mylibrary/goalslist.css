@@ -1,0 +1,62 @@
+/* Organização do corpo */
+
+.goalslist-header {
+    font-size: 0.85rem;
+}
+
+.goalslist-main {
+    display: flex;
+    padding-top: 2rem;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 85%;
+}
+
+/* Oragnização da tabela */
+
+.goalslist-table {
+    display: flex;
+    border: 2px solid #333;
+    box-shadow: 3px 3px #fab700;
+    min-width: 90%;
+    max-width: 90%;
+    height: auto;
+    margin-bottom: 3rem;
+}
+
+.goalslist-table tbody {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    padding: 1rem;
+}
+
+tr {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+}
+
+th {
+    width: 40%;
+}
+
+.row-content{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    align-items: center;
+}
+
+.goal, .deadline{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}
+
+.remove {
+    display: flex;
+    width: 20%;
+    justify-content: flex-end;
+}

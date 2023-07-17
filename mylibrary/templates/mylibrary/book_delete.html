@@ -1,0 +1,22 @@
+{% extends "mylibrary/base.html" %}
+<head>
+    {% load static %}
+    {% block head %}
+        <link rel="stylesheet" href="{% static 'mylibrary/bookdelete.css' %}">
+        <title>Delete book</title>
+    {% endblock %}
+</head>
+
+{% block content %}
+<header class="bookdelete-header">
+    <h1>Delete book</h1>
+</header>
+<main class="bookdelete-main">
+    <form method="post">
+        {% csrf_token %}
+        <p>Do you really want to delete <span class="book-title">'{{book.title}}'</span> book?</p>
+        <p>This is an irreversible action</p>
+        <input type="submit" value="Delete" class="bookdelete-submit"/>
+    </form>    
+</main>
+{% endblock %}

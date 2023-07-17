@@ -1,0 +1,22 @@
+{% extends "mylibrary/base.html" %}
+<head>
+    {% load static %}
+    {% block head %}
+        <link rel="stylesheet" href="{% static 'mylibrary/bookupdate.css' %}">
+        <title>Update book</title>
+    {% endblock %}
+</head>
+
+{% block content %}
+<header class="bookupdate-header">
+    <h1>Update book</h1>
+</header>
+<main class="bookupdate-main">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" Value="Update" class="bookupdate-submit"/>
+        <a href="{% url 'bookdelete' book.id%}" class="bookupdate-delete">Delete</a>
+    </form>
+</main>
+{% endblock %}

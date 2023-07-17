@@ -1,0 +1,107 @@
+{% extends "mylibrary/base.html" %}
+<head class="search-header">
+    {% load static %}
+    {% block head %}
+        <link rel="stylesheet" href="{% static 'mylibrary/advancedsearch.css' %}">
+        <title>Advanced search</title>
+    {% endblock %}
+</head>
+
+{% block content %}
+<header class="booklist-header">
+    <h1>Advanced search</h1>
+</header>
+<!-- Adicionando o jQuery -->
+<main class="search-main">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Definindo a função para mostrar/esconder os campos de busca -->
+    <script>
+    function showInput() {
+        // Esconde todos os campos de busca adicionais
+        $('.additional-input').hide();
+
+        // Obtém a opção de radio button selecionada
+        var searchType = $('input[name="search_type"]:checked').val();
+
+        // Verifica se já existe um campo adicional para essa opção
+        var additionalInput = $('#' + searchType + '-search');
+        if (additionalInput.length == 0) {
+            // Cria um novo campo adicional
+            var newInput = $('<div>').addClass('additional-input').attr('id', searchType + '-search');
+            if (searchType == 'title') {
+                newInput.append('{{ form.search }}');
+            } else if (searchType == 'author') {
+                newInput.append('{{ form.author_search }}');
+            } else if (searchType == 'genre') {
+                newInput.append('{{ form.genre_search }}');
+            } else if (searchType == 'publication_year') {
+                newInput.append('{{ form.publication_year_search }}');
+            } else if (searchType == 'grade') {
+                newInput.append('{{ form.grade_search }}');
+            } else if (searchType == 'finish_date') {
+                newInput.append('{{ form.finish_date_search }}');
+            }
+            newInput.appendTo('form');
+        } else {
+            // Exibe o campo adicional existente
+            additionalInput.show();
+        }
+    }
+    </script>
+
+    <form method="GET">
+        {% csrf_token %}
+        <div class="radios-div">
+            {% for choice in form.search_type %}
+                {{ choice.tag }} {{ choice.choice_label }}
+            {% endfor %}
+        </div>
+        <div class="texts-div">
+            <div id="title-search" class="additional-input" style="display: none;">
+                Search by title: {{ form.title_search }}
+            </div>
+            
+            <div id="author-search" class="additional-input" style="display: none;">
+                Search by author: {{ form.author_search }}
+            </div>
+            
+            <div id="genre-search" class="additional-input" style="display: none;">
+                Search by genre: {{ form.genre_search }}
+            </div>
+            
+            <div id="publication_year-search" class="additional-input" style="display: none;">
+                Search by publication year: {{ form.publication_year_search }}
+            </div>
+            
+            <div id="grade-search" class="additional-input" style="display: none;">
+                Search by grade: {{ form.grade_search }}
+            </div>
+            
+            <div id="finish_date-search" class="additional-input" style="display: none;">
+                Search by finish date: <br>
+                From: {{ form.finish_date_search }} To: {{form.finish_date_search2}}
+            </div>
+        </div>
+        <div class="button-div">
+            <button type="submit" class="searchbutton-submit">Search</button>
+        </div>
+    </form>
+    <section class="search-list">
+        {% if contexto%}
+            {%for book in contexto%}
+                <a href="{% url 'bookupdate' book.id %}" class="book-link">
+                    <section class="book-item">
+                        <figure class="book-cover-figure">
+                            <img src="{{book.book_cover.url}}" alt="" width="200" height="300" class="cover">
+                        </figure>
+                    {{book.title}}
+                    </section>
+                </a>
+            {%endfor%}
+        {% else %}
+            A busca não retornou nenhum resultado!
+        {% endif %}
+    </section>
+</main>
+{% endblock %}

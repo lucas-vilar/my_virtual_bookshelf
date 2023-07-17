@@ -1,0 +1,24 @@
+{% extends "mylibrary/base.html" %}
+<head>
+    {% load static %}
+    {% block head %}
+        <link rel="stylesheet" href="{% static 'mylibrary/nextread.css' %}">
+        <title>Create next read</title>
+    {% endblock %}
+</head>
+
+{% block content %}
+<header class="nextread-header">
+    <h1>Create next reading</h1>
+</header>
+<main class="nextread-main">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class="buttons">
+            <input type="submit" class="submit-button" value="Create"/>
+            <a href="{% url 'home' %}" class="back-button"> voltar</a>
+        </div>
+    </form>
+</main>
+{% endblock %}
